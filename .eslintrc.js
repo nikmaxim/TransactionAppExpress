@@ -11,6 +11,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    quotes: ["warn", "double"]
+    quotes: ["warn", "double"],
+    "no-console": "off",
+    "linebreak-style": 0,
   },
 };
