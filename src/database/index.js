@@ -5,17 +5,14 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize(process.env.database, process.env.user, process.env.password, {
   host: process.env.host,
   dialect: process.env.database_dialect,
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000,
-  },
 });
 
 const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
+
+db.users = require("./models/user.model")(sequelize, Sequelize);
 
 exports.initializeDb = async () => {
   try {
